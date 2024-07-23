@@ -22,4 +22,9 @@ enum City: string
             self::SaintsPetersburg => 'Saints Petersburg',
         };
     }
+
+    public function string_to(): string
+    {
+        return $this->value;
+    }
 }

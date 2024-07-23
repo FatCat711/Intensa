@@ -22,10 +22,11 @@ Route::get('/all-leads-csv', function () {
     $table = Lead::all();
     $filename = "leads.csv";
     $handle = fopen($filename, 'w+');
-    fputcsv($handle, array('fullname', 'email', 'phone_number', 'created_at'));
+    fprintf($handle, chr(0xEF) . chr(0xBB) . chr(0xBF));
+    fputcsv($handle, array('fullname', 'email', "city", 'phone_number', 'created_at'));
 
     foreach ($table as $row) {
-        fputcsv($handle, array($row['fullname'], $row['email'], $row['phone_number'], $row['created_at']));
+        fputcsv($handle, array($row['fullname'], $row['email'], $row['city']->string_to(), $row['phone_number'], $row['created_at']));
     }
     fclose($handle);
 
