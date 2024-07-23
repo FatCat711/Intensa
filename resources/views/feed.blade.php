@@ -6,6 +6,11 @@
             Create Lead
         </button>
     </a>
+    <a href="/all-leads-csv">
+        <button class="btn btn-outline-light">
+            Export as csv
+        </button>
+    </a>
     <div class="row">
         <div class="col-3">
         </div>
